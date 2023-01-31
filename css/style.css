@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;200;300;400;500;600&display=swap');
+
+/* Reset CSS */
+*{margin:0; padding:0; box-sizing:border-box;}
+body{font-size:14px; font-family: 'IBM Plex Mono', 'Noto Sans KR'; color:rgb(224, 228, 228);}
+ol, ul{list-style:none;}
+a{text-decoration: none;}
+img{display:block;}
+button, input, textarea{outline:0; font-family:'Open Sans';-webkit-appearance: none;}
+input[type="checkbox"]{-webkit-appearance: auto; border-radius:0; border:1px solid #fff;}
+input::placeholder, textarea::placeholder{color:#555;}
+
+/* Common Style */
+.center{width:100%; height:auto; max-width:520px; margin:auto;}
+.border-left{border-left:1px solid rgb(92, 96, 105);}
+.border-right{border-right:1px solid rgb(92, 96, 105);}
+.border-bottom{border-bottom:1px solid rgb(92, 96, 105);}
+.border-top{border-top:1px solid rgb(92, 96, 105);}
+.border-side{border-left:1px solid rgb(92, 96, 105); border-right:1px solid rgb(92, 96, 105);}
+
+
+html {width: 100%; height: 99.99%; overflow: hidden;}
+.wrapper {width: 100%; height: 100vh; overflow: hidden; background: rgb(34,36,41);}
+
+/* Header Style */
+header{width:100%; height:auto; padding:0 .5rem;}
+header .center{display:flex; justify-content: space-between; padding:1rem .75rem; align-items: center;}
+header .logo{padding:.25rem .5rem; background:rgb(224, 228, 228);}
+header .logo a{color:rgb(34, 36, 41); font-weight:bold; font-size:1.1rem;}
+header .home a{font-size:1rem; color:rgb(224, 228, 228); padding:.4rem .6rem; border:1px solid rgb(224, 228, 228); display:flex; align-items: center;}
+
+/* Slogan Section Style */
+section{padding:0 0.5rem;}
+section.slogan-sec .center{padding:1rem .75rem;}
+section.slogan-sec .main-slogan{display:flex; flex-direction: column; align-items: center; padding:2rem 0; row-gap:1.5rem;}
+section.slogan-sec .icon{border:1px solid rgb(224, 228, 228); border-radius: 50%; padding:2rem;}
+section.slogan-sec .icon i{font-size:4rem;}
+
+/* Bar Section Style */
+section.bar-sec{height:100vh;}
+section.bar-sec .center{padding:2rem; height:100%;}
+section.bar-sec .search-bar{display:flex; justify-content: center; width:100%; border:1px solid rgb(224, 228, 228); border-radius:.25rem;}
+section.bar-sec .search-bar input{width:80%; background:transparent; padding:.75rem; border:0; color:rgb(224, 228, 228);}
+section.bar-sec .search-bar button{width:20%; border:none; display:flex; align-items: center; justify-content: center;}
+section.bar-sec .search-bar button i{font-size:1.25rem;}
+section.bar-sec .near-btns{width:100%;height:auto; margin-top:.5rem;}
+section.bar-sec .near-btns button{width:100%; border:none; padding:.75rem; border-radius:.25rem;}
+section.bar-sec .near-btns em{font-style:normal;}
+
