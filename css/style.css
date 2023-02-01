@@ -47,3 +47,8 @@ section.bar-sec .near-btns{width:100%;height:auto; margin-top:.5rem;}
 section.bar-sec .near-btns button{width:100%; border:none; padding:.75rem; border-radius:.25rem;}
 section.bar-sec .near-btns em{font-style:normal;}
 
+/* Footer Style */
+footer{position:fixed; bottom:0; left:0; padding:0 0.5rem; width:100%;}
+footer .center{text-align:center; padding:1rem;}
+
+
