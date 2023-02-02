@@ -39,12 +39,26 @@
           <p>Powered by MongProject - Developed By dmstjfgus</p>
         </div>
       </footer>
+
+      <div class="loading-wrapper">
+        <div class="loading-spinner"></div>
+      </div>
     </div>
 
     <!-- Jquery Link -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ee38a13adcd9499759cb7d654d20278a"
+    ></script>
 
     <!-- Main Ccript Link -->
+    <script src="/ev_charge/js/crtPos.js"></script>
     <script src="/ev_charge/js/getCrtLists.js"></script>
+    <script>
+      $(document).ajaxComplete(function () {
+        $(".loading-wrapper").fadeOut();
+      });
+    </script>
   </body>
 </html>

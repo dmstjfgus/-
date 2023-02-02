@@ -60,12 +60,22 @@
           <p>Powered by MongProject - Developed By Marshall</p>
         </div>
       </footer>
+
+      <div class="loading-wrapper">
+        <div class="loading-spinner"></div>
+      </div>
     </div>
 
     <!-- Jquery Link -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
     <!-- Main Ccript Link -->
+    <script src="/ev_charge/js/crtPos.js"></script>
     <script src="/ev_charge/js/getCrt.js"></script>
+    <script>
+      $(document).ajaxComplete(function () {
+        $(".loading-wrapper").fadeOut();
+      });
+    </script>
   </body>
 </html>
