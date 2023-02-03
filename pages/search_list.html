@@ -33,10 +33,66 @@
         <div class="map" id="map"></div>
       </section>
 
+      <section class="map-lists">
+        <div class="lists">
+          <div class="list-up-down">
+            <i class="ri-arrow-up-s-line"></i>
+          </div>
+          <div class="item-list border-top border-bottom">
+            <!-- <div class="item">
+              <p>서울특별시 마포구 성산동 531 경기장 서편 주차장</p>
+              <div class="stats">
+                <span>상태 : 충전중</span>
+                <span>타입 : 급속</span>
+                <span>갱신 : 2022-11-11 11:07:34</span>
+                <span>위치 : 3km</span>
+              </div>
+            </div> -->
+            <!-- <div class="item">
+              <p>서울특별시 마포구 성산동 531 경기장 서편 주차장</p>
+              <div class="stats">
+                <span>상태 : 충전중</span>
+                <span>타입 : 급속</span>
+                <span>갱신 : 2022-11-11 11:07:34</span>
+                <span>위치 : 3km</span>
+              </div>
+            </div>
+            <div class="item">
+              <p>서울특별시 마포구 성산동 531 경기장 서편 주차장</p>
+              <div class="stats">
+                <span>상태 : 충전중</span>
+                <span>타입 : 급속</span>
+                <span>갱신 : 2022-11-11 11:07:34</span>
+                <span>위치 : 3km</span>
+              </div>
+            </div>
+            <div class="item">
+              <p>서울특별시 마포구 성산동 531 경기장 서편 주차장</p>
+              <div class="stats">
+                <span>상태 : 충전중</span>
+                <span>타입 : 급속</span>
+                <span>갱신 : 2022-11-11 11:07:34</span>
+                <span>위치 : 3km</span>
+              </div>
+            </div>
+            <div class="item">
+              <p>서울특별시 마포구 성산동 531 경기장 서편 주차장</p>
+              <div class="stats">
+                <span>상태 : 충전중</span>
+                <span>타입 : 급속</span>
+                <span>갱신 : 2022-11-11 11:07:34</span>
+                <span>위치 : 3km</span>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </section>
+
       <footer class="border-top">
         <div class="center border-side">
           <p>&copy; Copyright 2013</p>
-          <p>Powered by MongProject - Developed By dmstjfgus</p>
+          <p>Powered by MongProject</p>
+          <p>Developed By Marshall</p>
         </div>
       </footer>
 
@@ -55,6 +111,21 @@
     <!-- Main Ccript Link -->
     <script src="/ev_charge/js/crtPos.js"></script>
     <script src="/ev_charge/js/getCrtLists.js"></script>
+    <script>
+      $(function () {
+        const h = $("footer.border-top").outerHeight();
+        $(".map-lists").css({ bottom: h + 3 + "px" });
+
+        $(".map-lists .list-up-down").on("click", function () {
+          $(this).toggleClass("active");
+          if ($(this).hasClass("active")) {
+            $(this).find("i").attr("class", "ri-arrow-down-s-line");
+          } else {
+            $(this).find("i").attr("class", "ri-arrow-up-s-line");
+          }
+        });
+      });
+    </script>
     <script>
       $(document).ajaxComplete(function () {
         $(".loading-wrapper").fadeOut();

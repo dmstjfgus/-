@@ -48,11 +48,29 @@ section.bar-sec .near-btns button{width:100%; border:none; padding:.75rem; borde
 section.bar-sec .near-btns em{font-style:normal;}
 
 /* Footer Style */
-footer{position:fixed; bottom:0; left:0; padding:0 0.5rem; width:100%;}
+footer{position:fixed; bottom:0; left:0; padding:0 0.5rem; width:100%; z-index: 10; background: rgb(34, 36, 41);}
 footer .center{text-align:center; padding:1rem;}
 
 /* Map Section Style */
-#map {width: 100%; height: 600px;}
+#map {width: 100%; height: 100vh;}
+
+.marker-info {color: white; border: 0; font-size: 12px; text-align: center; width: 100%; font-family: 'Noto Sans KR';}
+
+/* Map Lists Style */
+.map-lists{position:fixed; width:100%; height:auto; z-index: 10;}
+.map-lists .lists .list-up-down{width:100%; height:auto; background:rgb(224, 228, 228); color:rgb(34, 36, 41); font-size:1.1rem; text-align:center; padding:.25rem 0;}
+.item-list{display:none;}
+.map-lists .lists .list-up-down.active + .item-list{display:block;}
+.map-lists .item-list{padding:.25rem; max-height:350px; overflow-y:scroll; overflow-x:hidden; background: rgb(34, 36, 41);}
+.map-lists .item-list .item{_padding:.25rem; margin-bottom:.25rem; margin-top:.5rem;}
+.map-lists .item-list .item:first-child{margin-top:0;}
+.map-lists .item-list .item .stats{display:flex; flex-wrap: wrap; gap:.25rem; justify-content: space-between;}
+.lists {margin-bottom: -.5rem;}
+
+
+.map-lists .item-list .item .stats span{width:calc(50% - .125rem); text-align:center;  background:rgb(224, 228, 228); color:rgb(34, 36, 41); padding:.25rem 0;}
+.map-lists .item-list .item .stats span:nth-child(4){display:flex; align-items: center; justify-content: center;}
+.map-lists .item-list p{width:100%; height:auto; padding:.25rem; background:rgb(224, 228, 228); color:rgb(34, 36, 41); text-align:center; margin-bottom:.25rem;}
 
 /* Loading Effect Style */
 :root {
