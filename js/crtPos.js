@@ -17,7 +17,14 @@ function success(pos) {
   } // typeof = 지정한 함수가 있을때 실행
 
   if (typeof getCrtLists == "function") {
-    getCrtLists(lat, lon);
+    let prn = 1;
+    getCrtLists(lat, lon, prn);
+
+    const ldmr = document.querySelector(".item-list button");
+    ldmr.addEventListener("click", function () {
+      prn++;
+      getCrtLists(lat, lon, prn);
+    });
   }
 }
 

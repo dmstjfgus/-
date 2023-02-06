@@ -1,16 +1,26 @@
 const keyParam = document.location.href.split("=")[1];
 const decordParam = decodeURI(keyParam);
 
-function getCrtLists(latitude, longitude) {
-  console.log(latitude);
-  console.log(longitude);
+function getCrtLists(latitude, longitude, page) {
+  // console.log(latitude);
+  // console.log(longitude);
   $.ajax({
-    url: `/ev_charge/php/search_list.php?key=${decordParam}`, // 요청 엔드포인트
+    url: `/ev_charge/php/search_list.php?key=${decordParam}&n=${page}`, // 요청 엔드포인트
     type: "GET", // 요청 방식
     success: function (data) {
       const parseJson = JSON.parse(data); // json 문자열을 json 데이터 형식으로 파싱
       const items = parseJson.body.items.item;
+      const ldmr = document.querySelector(".item-list button");
       console.log(items);
+
+      if (!items) {
+        ldmr.textContent = "마지막 리스트 입니다";
+        return;
+      }
+
+      // console.log("현재시간 :" + new Date());
+      // console.log("입력시간 :" + items[0].statUpdateDatetime);
+      // console.log("입력시간 가공 :" new Dates(items[0].statUpdateDatetime));
 
       // 지도 마커 표시
       var mapContainer = document.getElementById("map"), // 지도를 표시할 div
@@ -83,7 +93,7 @@ function getLists(la, ln, d) {
   const parseJson = JSON.parse(d); // json 문자열을 json 데이터 형식으로 파싱
   const items = parseJson.body.items.item;
   // console.log(items);
-  const itemList = document.querySelector(".item-list");
+  const itemList = document.querySelector(".item-list .items");
   let listsElmt;
 
   // 분리
@@ -106,6 +116,30 @@ function getLists(la, ln, d) {
     } else {
       cpStat = "오류(점검중)";
       statBg = "rgb(255,50,50)";
+    }
+
+    function elapsedTime(date) {
+      const start = new Date(date);
+      const end = new Date();
+
+      const diff = (end - start) / 1000;
+
+      const times = [
+        { name: "년", milliSeconds: 60 * 60 * 24 * 365 },
+        { name: "개월", milliSeconds: 60 * 60 * 24 * 30 },
+        { name: "일", milliSeconds: 60 * 60 * 24 },
+        { name: "시간", milliSeconds: 60 * 60 },
+        { name: "분", milliSeconds: 60 },
+      ];
+
+      for (const value of times) {
+        const betweenTime = Math.floor(diff / value.milliSeconds);
+
+        if (betweenTime > 0) {
+          return `${betweenTime}${value.name} 전`;
+        }
+      }
+      return "방금 전";
     }
 
     function getDistanceFromLatLonInKm(lat1, lng1, lat2, lng2) {
@@ -141,7 +175,7 @@ function getLists(la, ln, d) {
         <div class="stats">
           <span style="background:${statBg}">상태 : ${cpStat}</span>
           <span>타입 : ${charTp}</span>
-          <span>갱신 : ${li.statUpdateDatetime}</span>
+          <span>갱신 : ${elapsedTime(li.statUpdateDatetime)}</span>
           <span>거리 : ${getDistanceFromLatLonInKm(
             la,
             ln,
